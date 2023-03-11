@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    """Program add function from add_0"""
+    """Imports add function from add_0 to use"""
 
     from add_0 import add
     a = 1
