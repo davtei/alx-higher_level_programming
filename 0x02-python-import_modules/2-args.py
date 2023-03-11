@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-
 from sys import argv
+
 
 def arguments():
     print('{} argument'.format(len(argv) - 1), end='')
@@ -13,6 +13,7 @@ def arguments():
         print('s:')
     for i in range(1, len(argv)):
         print('{}: {}'.format(i, argv[i]))
+
 
 if __name__ == "__main__":
     arguments()
