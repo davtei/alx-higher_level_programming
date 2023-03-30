@@ -15,18 +15,18 @@ class Square:
 
     @property
     def size(self):
-        """Get/set the size of the current square"""
+        """Retrieve the value of the private instance attribute, __size"""
         return (self.__size)
 
     @size.setter
     def size(self, value):
-        if not type(value) is int:
+        """Set the value of the private instance attribute, __size"""
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
         else:
-            if value < 0:
-                raise ValueError("size must be >= 0")
-            else:
-                return (self.__size ** 2)
+            self.__size = value
 
     def area(self):
         """Public instance method that
