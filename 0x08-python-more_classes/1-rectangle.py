@@ -35,7 +35,7 @@ class Rectangle:
         """Retrieve the value for the private instance attribute, __height."""
         return self.__height
 
-    @height.getter
+    @height.setter
     def height(self, value):
         """Set the value of the private instance attribute, __height."""
         if not isinstance(value, int):
