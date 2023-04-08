@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Divides all elements of a matrix. """
 
+
 def matrix_divided(matrix, div):
     """
     A function that divides all elements of a matrix.
@@ -19,12 +20,12 @@ def matrix_divided(matrix, div):
                         + "(list of lists) of integers/floats")
     for row in matrix:
         if len(row) == 0:
-            raise TypeError("matrix must be a matrix"
-                        + "(list of lists) of integers/floats")
+            raise TypeError("matrix must be a matrix" +
+                            "(list of lists) of integers/floats")
         for n in row:
             if not isinstance(n, int) and not isinstance(n, float):
-                raise TypeError("matrix must be a matrix"
-                        + "(list of lists) of integers/floats")
+                raise TypeError("matrix must be a matrix" +
+                                "(list of lists) of integers/floats")
 
     rows = []
     for row in matrix:
