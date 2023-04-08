@@ -8,6 +8,8 @@ def add_integer(a, b=98):
     Args:
         a, b (int or float): numbers to be added.
         If a and/or b is/are float, they are cast into integers.
+    Raise:
+        TypeError: if a and/or b are not int or float.
     Return:
         Integer sum of a and b.
     """

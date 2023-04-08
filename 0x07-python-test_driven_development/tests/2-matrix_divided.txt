@@ -1,0 +1,90 @@
+The ``2-matrix_divided`` module
+===============================
+
+This is a test file for the function 2-matrix_divided.
+
+Import Function
+---------------
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Using ``2-matrix_divided``
+-------------------
+
+2-matrix_divided takes a matrix and a div divisor.
+It divides the matrix elements by the divisor and returns the quotient matrix
+with elements rounded to two decimal places.
+The original matrix is not altered.
+
+# Test matrix:
+
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+    >>> print(matrix)
+    [[1, 2, 3], [4, 5, 6]]
+
+    >>> matrix_divided([[1, 2, 3]], 3)
+    [[0.33, 0.67, 1.0]]
+
+# Test negative elements:
+
+    >>> matrix_divided([[1, -2, 3], [4, 5, -6]], 3)
+    [[0.33, -0.67, 1.0], [1.33, 1.67, -2.0]]
+
+# Test unequal rows:
+
+    >>> matrix_divided([[1, 2, 3], [4, 6]], 3)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+    >>> matrix_divided([[1, 2], [4, 5, 6]], 3)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+# Test non-numeric matrix elements:
+
+    >>> matrix_divided([[1, 'a', 3], [4, 5, "sky"]], 3)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix(list of lists) of integers/floats
+
+# Test non-matrix:
+
+    >>> matrix_divided("str", 3)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix(list of lists) of integers/floats
+
+# Test empty dividend:
+
+    >>> matrix_divided((), 3)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix(list of lists) of integers/floats
+
+# Test negative div:
+
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], -3)
+    [[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+# Test zero division:
+
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], -0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
+
+# Test non-numeric divisor:
+
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 'b')
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+# Test no divisor:
+
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]])
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+# Test empty matrix and div (no arguments):
+
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
