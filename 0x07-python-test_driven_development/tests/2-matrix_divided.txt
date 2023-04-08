@@ -81,6 +81,11 @@ The original matrix is not altered.
     Traceback (most recent call last):
     TypeError: div must be a number
 
+# Test infinity div:
+
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], float('inf'))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
 # Test no divisor:
 
     >>> matrix_divided([[1, 2, 3], [4, 5, 6]])
