@@ -8,10 +8,10 @@ Import Function
 
     >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
-Using ``2-matrix_divided``
+Using ``matrix_divided``
 ------------------------
 
-2-matrix_divided takes a matrix and a div divisor.
+matrix_divided takes a matrix and a div divisor.
 It divides the matrix elements by the divisor and returns the quotient matrix
 with elements rounded to two decimal places.
 The original matrix is not altered.

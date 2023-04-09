@@ -1,4 +1,4 @@
-The Print Square module
+The ``print_square`` module
 =======================
 
 This is a test file for the function print_square
