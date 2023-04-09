@@ -1,5 +1,5 @@
 The ``text_indentation`` module
-===========================
+===============================
 
 This is a test file for the function text_indentation
 
