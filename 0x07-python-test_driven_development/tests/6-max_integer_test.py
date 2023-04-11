@@ -4,6 +4,7 @@
 import unittest
 max_integer = __import__('6-max_integer').max_integer
 
+
 class TestMaxInteger(unittest.TestCase):
     """Defines test cases for the max_integer function"""
 
@@ -65,7 +66,7 @@ class TestMaxInteger(unittest.TestCase):
     def test_list_str(self):
         """Test case for list having int and string elements"""
         str_elements = [1, 6, "alx", 12, "25"]
-        self.assertRaises(TypeError, max_integer, 7)
+        self.assertRaises(TypeError, max_integer, str_element)
 
     def test_list_all_str(self):
         """Test case for list of strings"""
@@ -74,7 +75,8 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_nada(self):
         """Test case argument passed is not a list"""
-        self.assertRaises(TypeError, max_integer, 7)
+        self.assertRaises(TypeError, max_integer, 5)
+
 
 if __name__ == '__main__':
     unittest.main()
