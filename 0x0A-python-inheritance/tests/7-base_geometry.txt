@@ -1,0 +1,84 @@
+The ``BaseGeometry`` class
+==========================
+
+This is a test file for the class ``BaseGeometry``
+
+Import ``BaseGeometry``
+-----------------------
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Using ``BaseGeometry``
+----------------------
+
+BaseGeometry is a class that has public instance methods
+area() and integer_validator().
+area() raise an exception while integer_validator() validates
+an argument value passed to it.
+
+Test cases:
+----------
+
+# Test area call:
+    >>> geo = BaseGeometry()
+    >>> geo.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+
+# Test extra argument for area:
+    >>> geo.area(25)
+    Traceback (most recent call last):
+    TypeError: area() takes 1 positional argument but 2 were given
+
+# Test integer_validator:
+    >>> geo.integer_validator("my_int", 12)
+
+    >>> geo.integer_validator("width", 89)
+
+# Test integer_validator for no argument:
+    >>> geo.integer_validator()
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+# Test integer_validator for one argument provided:
+    >>> geo.integer_validator(25)
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+# Test integer_validator for extra arguments:
+    >>> geo.integer_validator("my_int", 12, 89)
+    Traceback (most recent call last):
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+# Test integer_validator for value as string:
+    >>> geo.integer_validator("name", "John")
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+# Test integer_validator for value as zero:
+    >>> geo.integer_validator("my_int", 0)
+    Traceback (most recent call last):
+    ValueError: my_int must be greater than 0
+
+# Test integer_validator for value as negative:
+    >>> geo.integer_validator("my_int", -25)
+    Traceback (most recent call last):
+    ValueError: my_int must be greater than 0
+
+# Test integer_validator for value as float:
+    >>> geo.integer_validator("my_int", 0.5)
+    Traceback (most recent call last):
+    TypeError: my_int must be an integer
+
+# Test integer_validator for value as list:
+    >>> geo.integer_validator("my_int", [1, 2, 3])
+    Traceback (most recent call last):
+    TypeError: my_int must be an integer
+
+# Test integer_validator for value as bool:
+    >>> geo.integer_validator("my_int", True)
+
+
+    >>> geo.integer_validator("my_int", False)
+    Traceback (most recent call last):
+    ValueError: my_int must be greater than 0
