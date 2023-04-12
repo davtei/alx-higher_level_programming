@@ -1,0 +1,93 @@
+The ``MyList`` module
+=====================
+
+This is a test file for the MyList subclass of the list class.
+
+Import ``MyList``
+-----------------
+
+>>> MyList = __import__('1-my_list').MyList
+
+Using ``MyList``
+----------------
+
+MyList is a subclass of the class list that contains a
+public instance method ``print_sorted`` that prints a
+list privided in ascending order.
+
+Test cases:
+----------
+
+# Test for documentation for MyList module:
+    >>> my_list = __import__('1-my_list').__doc__
+    >>> len(my_list) > 1
+    True
+
+# Test for documentation for MyList class:
+    >>> my_list = __import__('1-my_list').MyList.__doc__
+    >>> len(my_list) > 1
+    True
+
+# Test for documentation for print_sorted method:
+    >>> my_list = __import__('1-my_list').MyList.print_sorted.__doc__
+    >>> len(my_list) > 1
+    True
+
+# Test MyList is subclass of list:
+    >>> issubclass(MyList, list)
+    True
+
+    >>> super(list, MyList)
+    <super: <class 'list'>, <MyList object>>
+
+# Test empty list:
+    >>> empty = MyList()
+    >>> empty.print_sorted()
+    []
+
+# Test for unordered list of integers:
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+# Test for ordered list of integers:
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+# Test descending ordered list of integers:
+    >>> tsil_ym = MyList()
+    >>> tsil_ym.append(5)
+    >>> tsil_ym.append(4)
+    >>> tsil_ym.append(3)
+    >>> tsil_ym.append(2)
+    >>> tsil_ym.append(1)
+    >>> tsil_ym.print_sorted()
+    [1, 2, 3, 4, 5]
+
+# Test for negatives in list:
+    >>> nl = MyList()
+    >>> nl.append(-3)
+    >>> nl.append(1)
+    >>> nl.append(-2)
+    >>> nl.append(5)
+    >>> nl.print_sorted()
+    [-3, -2, 1, 5]
+
+# Test for all negatives in list:
+    >>> allneg = MyList()
+    >>> allneg.append(-3)
+    >>> allneg.append(1)
+    >>> allneg.append(-2)
+    >>> allneg.append(5)
+    >>> allneg.print_sorted()
+    [-3, -2, 1, 5]
+
+# Test more than one argument supplied:
+    >>> my_list.print_sorted(my_list)
+    Traceback (most recent call last):
+    TypeError: print_sorted() takes 1 positional argument but 2 were given
