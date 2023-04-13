@@ -4,30 +4,43 @@ Each 10 lines and after a keyboard interruption (CTRL + C), prints
 those statistics since the beginning."""
 
 
-import sys
+def status_print(size, codes):
+    """Function that prints the metrics."""
+    print("File size: {}".format(size))
+    for key in sorted(codes):
+        print("{}: {}".format(key, codes[key]))
 
-total_size = 0
-status_counts = {}
+if __name__ == "__main__":
+    import sys
 
-try:
-    for i, line in enumerate(sys.stdin):
-        pts = line.split()
-        if len(pts) != 7:
-            continue
-        ip_address, date, method, path, protocol, status_code, file_size = pts
 
-        total_size += int(file_size)
+    size = 0
+    count = 0
+    codes = {}
+    code = ['200', '301', '400', '401', '403', '404', '405', '500']
 
-        if status_code not in status_counts:
-            status_counts[status_code] = 0
-        status_counts[status_code] += 1
+    try:
+        for line in sys.stdin:
+            if count == 10:
+                status_print(size, codes)
+                count = 1
+            else:
+                count += 1
+            line = line.split()
 
-        if i > 0 and i % 10 == 0:
-            print(f"Total file size: {total_size}")
-            for code in sorted(status_counts.keys()):
-                print(f"{code}: {status_counts[code]}")
-
-except KeyboardInterrupt:
-    print(f"Total file size: {total_size}")
-    for code in sorted(status_counts.keys()):
-        print(f"{code}: {status_counts[code]}")
+            try:
+                size += int(line[-1])
+            except (IndexError, ValueError):
+                pass
+            try:
+                if line[-2] in code:
+                    if codes.get(line[-2], -1) == -1:
+                        codes[line[-2]] = 1
+                    else:
+                        codes[line[-2]] += 1
+            except IndexError:
+                pass
+        status_print(size, codes)
+    except KeyboardInterrupt:
+        status_print(size, codes)
+        raise
