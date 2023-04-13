@@ -10,9 +10,9 @@ def status_print(size, codes):
     for key in sorted(codes):
         print("{}: {}".format(key, codes[key]))
 
+
 if __name__ == "__main__":
     import sys
-
 
     size = 0
     count = 0
