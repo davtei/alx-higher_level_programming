@@ -34,3 +34,4 @@ class Student():
             try:
                 setattr(self, key, json[key])
             except FileNotFoundError:
+                pass
