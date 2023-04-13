@@ -6,40 +6,28 @@ those statistics since the beginning."""
 
 import sys
 
-stats = {
-    "200": 0,
-    "301": 0,
-    "400": 0,
-    "401": 0,
-    "403": 0,
-    "404": 0,
-    "405": 0,
-    "500": 0,
-}
 total_size = 0
-line_count = 0
+status_counts = {}
 
 try:
-    for line in sys.stdin:
-        try:
-            parts = line.split()
-            status_code = parts[8]
-            size = int(parts[9])
-            total_size += size
-            line_count += 1
-            if status_code in stats:
-                stats[status_code] += 1
-            if line_count % 10 == 0:
-                print(f"Total file size: {total_size}")
-                for code in sorted(stats.keys()):
-                    if stats[code] > 0:
-                        print(f"{code}: {stats[code]}")
-        except IndexError:
-            pass
-except KeyboardInterrupt:
-    pass
+    for i, line in enumerate(sys.stdin):
+        pts = line.split()
+        if len(pts) != 7:
+            continue
+        ip_address, date, method, path, protocol, status_code, file_size = pts
 
-print(f"Total file size: {total_size}")
-for code in sorted(stats.keys()):
-    if stats[code] > 0:
-        print(f"{code}: {stats[code]}")
+        total_size += int(file_size)
+
+        if status_code not in status_counts:
+            status_counts[status_code] = 0
+        status_counts[status_code] += 1
+
+        if i > 0 and i % 10 == 0:
+            print(f"Total file size: {total_size}")
+            for code in sorted(status_counts.keys()):
+                print(f"{code}: {status_counts[code]}")
+
+except KeyboardInterrupt:
+    print(f"Total file size: {total_size}")
+    for code in sorted(status_counts.keys()):
+        print(f"{code}: {status_counts[code]}")
