@@ -82,3 +82,22 @@ class Base:
                 return [cls.create(**dic) for dic in dicts]
         except IOError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Class method that writes the CSV serialization to a file.
+        Arg:
+            list_objs (list): list of objects.
+        """
+        fname = cls.__name__ + ".csv"
+        with open(fname, 'w', newline="") as csvfile:
+            if list_objs == [] or list_objs is None:
+                csvfile.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    names = ["id", "width", "height", "x", "y"]
+                else:
+                    names = ["id", "size", "x", "y"]
+                escribe = csv.DictWriter(csvfile, names=names)
+                for obj in list_objs:
+                    escribe.writerow(obj.to_dictionary())
