@@ -101,3 +101,22 @@ class Base:
                 escribe = csv.DictWriter(csvfile, names=names)
                 for obj in list_objs:
                     escribe.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Class method that returns a list of class instances from
+        a CSV file.
+        """
+        fname = cls.__name__ + ".csv"
+        try:
+            with open(fname, 'r', newline="") as csvfile:
+                if cls.__name__ == "Rectangle":
+                    names = ["id", "width", "height", "x", "y"]
+                else:
+                    names = ["id", "size", "x", "y"]
+                dicts = csv.DictReader(csvfile, names=names)
+                dicts = [dict([key, int(val)] for key, val in d.items())
+                         for d in dicts]
+                return [cls.create(**d) for d in dicts]
+        except IOError:
+            return []
