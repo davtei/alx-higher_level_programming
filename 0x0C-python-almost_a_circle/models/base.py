@@ -95,10 +95,10 @@ class Base:
                 csvfile.write("[]")
             else:
                 if cls.__name__ == "Rectangle":
-                    names = ["id", "width", "height", "x", "y"]
+                    fieldnames = ["id", "width", "height", "x", "y"]
                 else:
-                    names = ["id", "size", "x", "y"]
-                escribe = csv.DictWriter(csvfile, names=names)
+                    fieldnames = ["id", "size", "x", "y"]
+                escribe = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 for obj in list_objs:
                     escribe.writerow(obj.to_dictionary())
 
@@ -111,10 +111,10 @@ class Base:
         try:
             with open(fname, 'r', newline="") as csvfile:
                 if cls.__name__ == "Rectangle":
-                    names = ["id", "width", "height", "x", "y"]
+                    fieldnames = ["id", "width", "height", "x", "y"]
                 else:
-                    names = ["id", "size", "x", "y"]
-                dicts = csv.DictReader(csvfile, names=names)
+                    fieldnames = ["id", "size", "x", "y"]
+                dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
                 dicts = [dict([key, int(val)] for key, val in d.items())
                          for d in dicts]
                 return [cls.create(**d) for d in dicts]
