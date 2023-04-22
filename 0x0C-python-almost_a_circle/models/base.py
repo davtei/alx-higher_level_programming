@@ -120,3 +120,48 @@ class Base:
                 return [cls.create(**d) for d in dicts]
         except IOError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Static method that opens a window and draws all the Rectangles
+        and Squares.
+        Args:
+            list_rectangles (list): list of Rectangle objects to draw
+            list_squares (list): list of Square objects to draw
+        """
+        turt = turtle.Turtle()
+        turt.screen.bgcolor("#001F3F")
+        turt.pensize(3)
+        turt.shape("turtle")
+
+        colors = ["#FF4136", "#FF851B", "#FFDC00", "#2ECC40", "#0074D9",
+                  "#B10DC9"]
+        i = 0
+
+        for rect in list_rectangles:
+            turt.showturtle()
+            turt.up()
+            turt.goto(rect.x, rect.y)
+            turt.down()
+            turt.color(colors[i % len(colors)])
+            for j in range(2):
+                turt.forward(rect.width)
+                turt.left(90)
+                turt.forward(rect.height)
+                turt.left(90)
+            turt.hideturtle()
+            i += 1
+
+        for sq in list_squares:
+            turt.showturtle()
+            turt.up()
+            turt.goto(sq.x, sq.y)
+            turt.down()
+            turt.color(colors[i % len(colors)])
+            for j in range(4):
+                turt.forward(sq.width)
+                turt.left(90)
+            turt.hideturtle()
+            i += 1
+
+        turtle.exitonclick()
