@@ -2,7 +2,7 @@
 -- Each record displays: <TV Show genre> - <Number of shows linked to this genre>
 -- First and second columns are genre and number_of_shows respectively.
 -- Genre without shows linked are not displayed
---Results are sorted in descending order by the number of shows linked
+-- Results are sorted in descending order by the number of shows linked
 -- Uses only one SELECT statement
 SELECT tv_genres.name AS genre, COUNT(tv_show_genres.genre_id) AS number_of_shows
     FROM tv_genres RIGHT JOIN tv_show_genres
