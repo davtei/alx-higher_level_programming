@@ -3,4 +3,4 @@
 -- user_0d_1 password is set to user_0d_1_pwd
 -- The script does not fail if user_0d_1 already exitst
 CREATE USER IF NOT EXISTS user_0d_1@localhost IDENTIFIED BY 'user_0d_1_pwd';
-GRANT *.* TO user_0d_1@localhost
+GRANT ALL ON *.* TO user_0d_1@localhost
