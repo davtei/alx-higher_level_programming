@@ -2,7 +2,7 @@
 -- The tv_genres table contains only one record where name = Comedy (but the id can be different)
 -- Each record displays: tv_shows.title
 -- Results are sorted in ascending order by the show title
--- Uses only one SELECT statement
+-- Uses only two SELECT statements
 SELECT title
     FROM tv_shows
         WHERE title NOT IN
