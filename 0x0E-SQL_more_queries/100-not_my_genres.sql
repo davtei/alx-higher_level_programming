@@ -2,7 +2,7 @@
 -- The tv_shows table contains only one record where title = Dexter (but the id can be different)
 -- Each record displays: tv_genres.name
 -- Results are be sorted in ascending order by the genre name
--- Uses only one SELECT statement
+-- Uses a maximum of two SELECT statementd
 SELECT name
     FROM tv_genres
         WHERE name NOT IN
