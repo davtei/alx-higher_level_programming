@@ -139,6 +139,7 @@ It’s the keyword to define a global variable
 ---
 
 ---
+
 ## **Tasks**
 **0. First constant, first print**
 <button>mandatory</button>
