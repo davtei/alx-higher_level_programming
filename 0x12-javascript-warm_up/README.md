@@ -506,6 +506,7 @@ console.log(myVar);
 guillaume@ubuntu:~/0x12$ ./100-main.js
 333
 guillaume@ubuntu:~/0x12$
+```
 ![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/4ae30fb44f708dbb3abc211b784db614e615ca21.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230615%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230615T125339Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=5e15837107a83808970d63c645c5041f1f9eaf1f6fff96e47a9a2b5d720854f0)
 Do you get it? Tweet! Post! Talk about it!
 
@@ -513,7 +514,7 @@ Hint: Scope
 
 This exercise doesn’t pass semistandard so don’t worry about it.
 
-```
+
 **Repo:**
 - GitHub repository: alx-higher_level_programming
 - Directory: 0x12-javascript-warm_up
