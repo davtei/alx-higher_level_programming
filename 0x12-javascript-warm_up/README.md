@@ -111,7 +111,6 @@ Does Javascript have `String` as a native datatype?
 No
 
 __Question #4__
-
 What does `let` mean? (please check all true answers)
 
 **It’s the keyword to define a variable with optionally initializing it to a value**
@@ -125,7 +124,6 @@ It’s the keyword to define a constant variable
 It’s the keyword to define a global variable
 
 **Question #5**
-
 What does `const` mean? (please check all true answers)
 
 It’s the keyword to define a variable with optionally initializing it to a value
