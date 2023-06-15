@@ -468,7 +468,7 @@ Write a function that returns the addition of 2 integers.
 The function must be visible from outside
 The name of the function must be add
 You are not allowed to use var
-Tip
+[Tip](http://51elliot.blogspot.com/2012/01/simple-intro-to-nodejs-module-scope.html)
 
 guillaume@ubuntu:~/0x12$ cat 13-main.js
 #!/usr/bin/node
@@ -482,3 +482,4 @@ Repo:
 GitHub repository: alx-higher_level_programming
 Directory: 0x12-javascript-warm_up
 File: 13-add.js
+
