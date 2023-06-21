@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """The City class."""
 
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Integer, String, Column, ForeignKey
 from model_state import Base
 
