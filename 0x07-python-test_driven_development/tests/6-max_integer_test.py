@@ -66,7 +66,7 @@ class TestMaxInteger(unittest.TestCase):
     def test_list_str(self):
         """Test case for list having int and string elements"""
         str_elements = [1, 6, "alx", 12, "25"]
-        self.assertRaises(TypeError, max_integer, str_element)
+        self.assertRaises(TypeError, max_integer, str_elements)
 
     def test_list_all_str(self):
         """Test case for list of strings"""
